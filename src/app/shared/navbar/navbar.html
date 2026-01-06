@@ -1,1 +1,23 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    <div class="navbar-container">
+
+        <!-- Logo -->
+        <div class="logo">
+            <span>EventHub</span>
+        </div>
+
+        <!-- Links -->
+        <ul class="nav-links">
+            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+            <li><a routerLink="/events" routerLinkActive="active">Events</a></li>
+            <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        </ul>
+
+        <!-- Profile -->
+        <div class="profile">
+            <img src="https://i.pravatar.cc/40" alt="User Profile">
+        </div>
+
+    </div>
+</nav>
