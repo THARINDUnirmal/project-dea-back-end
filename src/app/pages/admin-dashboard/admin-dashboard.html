@@ -1,1 +1,105 @@
-<p>admin-dashboard works!</p>
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">EventHub</h2>
+    <ul>
+      <li class="active">Dashboard</li>
+      <li>Events</li>
+      <li>Users</li>
+      <li>Bookings</li>
+      <li>Reports</li>
+      <li class="logout">Logout</li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <div class="topbar">
+      <h2>Dashboard</h2>
+      <span>Welcome, Admin ...</span>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card lavender">
+        <p>Total Events</p>
+        <h3>24</h3>
+      </div>
+
+      <div class="card pink">
+        <p>Total Users</p>
+        <h3>1,240</h3>
+      </div>
+
+      <div class="card peach">
+        <p>Bookings</p>
+        <h3>560</h3>
+      </div>
+
+      <div class="card yellow">
+        <p>Revenue</p>
+        <h3>$8,450</h3>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+      <div class="chart-card">
+        <h4>Monthly Bookings</h4>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <h4>Event Categories</h4>
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  new Chart(document.getElementById('barChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+      datasets: [{
+        label: 'Bookings',
+        data: [120, 190, 300, 250, 220, 310],
+        backgroundColor: [
+          '#C6C3F5',
+          '#FFC6E5',
+          '#FFE1CF',
+          '#FFF6BF',
+          '#C6C3F5',
+          '#FFC6E5'
+        ]
+      }]
+    },
+    options: {
+      borderRadius: 12
+    }
+  });
+
+  new Chart(document.getElementById('pieChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Tech', 'Music', 'Sports', 'Education'],
+      datasets: [{
+        data: [40, 30, 15, 15],
+        backgroundColor: [
+          '#C6C3F5',
+          '#FFC6E5',
+          '#FFE1CF',
+          '#FFF6BF'
+        ]
+      }]
+    }
+  });
+</script>
