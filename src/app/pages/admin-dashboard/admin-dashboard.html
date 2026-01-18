@@ -1,105 +1,50 @@
-<div class="layout">
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <h2 class="logo">EventHub</h2>
-    <ul>
-      <li class="active">Dashboard</li>
-      <li>Events</li>
-      <li>Users</li>
-      <li>Bookings</li>
-      <li>Reports</li>
-      <li class="logout">Logout</li>
-    </ul>
-  </aside>
-
-  <!-- Main -->
-  <main class="main">
-
-    <!-- Topbar -->
-    <div class="topbar">
-      <h2>Dashboard</h2>
-      <span>Welcome, Admin ...</span>
+<div class="hero">
+  <div class="admin-info">
+    <div class="avatar"></div>
+    <div>
+      <h2>Admin Dashboard</h2>
+      <p>Jane Smith<br><small>Super Admin User</small></p>
     </div>
-
-    <!-- Cards -->
-    <div class="cards">
-      <div class="card lavender">
-        <p>Total Events</p>
-        <h3>24</h3>
-      </div>
-
-      <div class="card pink">
-        <p>Total Users</p>
-        <h3>1,240</h3>
-      </div>
-
-      <div class="card peach">
-        <p>Bookings</p>
-        <h3>560</h3>
-      </div>
-
-      <div class="card yellow">
-        <p>Revenue</p>
-        <h3>$8,450</h3>
-      </div>
-    </div>
-
-    <!-- Charts -->
-    <div class="charts">
-      <div class="chart-card">
-        <h4>Monthly Bookings</h4>
-        <canvas id="barChart"></canvas>
-      </div>
-
-      <div class="chart-card">
-        <h4>Event Categories</h4>
-        <canvas id="pieChart"></canvas>
-      </div>
-    </div>
-
-  </main>
+  </div>
 </div>
 
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="grid">
+  <div class="card large">
+    <h4>All Users</h4>
+    <table>
+      <tr>
+        <th>Name</th><th>Email</th><th>Role</th><th>Action</th>
+      </tr>
+      <tr>
+        <td>John Doe</td><td>john@mail.com</td><td>Admin</td>
+        <td><button class="btn">View</button></td>
+      </tr>
+    </table>
+  </div>
 
-<script>
-  new Chart(document.getElementById('barChart'), {
-    type: 'bar',
-    data: {
-      labels: ['Jan','Feb','Mar','Apr','May','Jun'],
-      datasets: [{
-        label: 'Bookings',
-        data: [120, 190, 300, 250, 220, 310],
-        backgroundColor: [
-          '#C6C3F5',
-          '#FFC6E5',
-          '#FFE1CF',
-          '#FFF6BF',
-          '#C6C3F5',
-          '#FFC6E5'
-        ]
-      }]
-    },
-    options: {
-      borderRadius: 12
-    }
-  });
+  <div class="card">
+    <h4>System Metrics</h4>
+    <p>Total Events: <b>150+</b></p>
+    <p>Total Users: <b>500+</b></p>
+    <p>Pending Approvals: <b>15</b></p>
+  </div>
 
-  new Chart(document.getElementById('pieChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Tech', 'Music', 'Sports', 'Education'],
-      datasets: [{
-        data: [40, 30, 15, 15],
-        backgroundColor: [
-          '#C6C3F5',
-          '#FFC6E5',
-          '#FFE1CF',
-          '#FFF6BF'
-        ]
-      }]
-    }
-  });
-</script>
+  <div class="card">
+    <h4>All Events</h4>
+    <table>
+      <tr><th>Event</th><th>Date</th></tr>
+      <tr><td>AI Workshop</td><td>Feb 12</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>Recent Activity</h4>
+    <p>AI Workshop – 500+ users</p>
+    <p>New approvals – 15</p>
+  </div>
+
+  <div class="card full">
+    <h4>Tasks & Reminders</h4>
+    <p>You created schedules for <b>Project Alpha</b></p>
+  </div>
+</div>
