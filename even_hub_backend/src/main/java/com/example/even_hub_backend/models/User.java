@@ -17,15 +17,15 @@ public class User {
 
     private String userName;
     private String userEmail;
-    private String password; // Login වලට අත්‍යවශ්‍යයි
-    private String role; // ex: admin, user
+    private String password;
+    private String role; 
 
     @OneToMany(mappedBy = "user")
-    @JsonIgnoreProperties("user") // Event ඇතුළේ තියෙන user ආයෙත් ගන්න එපා කියන්න
+    @JsonIgnoreProperties("user") 
     private List<Event> events;
 
-    // User.java ඇතුළත
+
     public Long getUserId() {
-        return this.id; // ඔබේ variable එකේ නම 'id' නම් 'return this.id;' ලෙස යොදන්න
+        return this.id; 
     }
 }
