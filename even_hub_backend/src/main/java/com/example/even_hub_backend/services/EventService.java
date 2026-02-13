@@ -24,14 +24,14 @@ public class EventService {
     }
 
     public Event saveEvent(Event event) {
-        // 1. Speakers ලැයිස්තුව null නෙමෙයි නම් විතරක් මේක කරන්න
+        
         if (event.getSpeakers() != null) {
             for (Speaker speaker : event.getSpeakers()) {
-                // 2. හැම speaker කෙනෙක්ටම මේ current event එක set කරන්න
+                
                 speaker.setEvent(event);
             }
         }
-        // 3. දැන් event එක save කරන්න (CascadeType.ALL නිසා speakers ලාත් save වෙයි)
+       
         return eventRepository.save(event);
     }
 

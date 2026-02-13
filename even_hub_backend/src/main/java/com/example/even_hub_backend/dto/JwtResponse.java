@@ -15,7 +15,7 @@ public class JwtResponse {
         this.role = role;
     }
 
-    // Getters (අනිවාර්යයෙන්ම ඕනේ)
+   
     public String getToken() { return token; }
     public Long getId() { return id; }
     public String getUsername() { return username; }

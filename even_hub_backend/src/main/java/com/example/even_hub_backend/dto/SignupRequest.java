@@ -7,5 +7,5 @@ public class SignupRequest {
     private String userName;
     private String userEmail;
     private String password;
-    private String role; // ex: admin, user
+    private String role; 
 }
