@@ -41,13 +41,13 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // CORS සැකසුම් සක්‍රීය කිරීම
+                
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
-                        // ඕනෑම කෙනෙකුට (Token නොමැතිව) Events බැලීමට අවසර දීම
+                        
                         .requestMatchers(HttpMethod.GET, "/api/events/**").permitAll()
                         .anyRequest().authenticated()
                 )
@@ -62,21 +62,20 @@ public class WebSecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // ✅ 1. නිශ්චිත Origins වෙනුවට Patterns පාවිච්චි කිරීම (Flutter Web වලට ඉතා වැදගත්)
-        // මේකෙන් ඕනෑම localhost port එකකට අවසර ලැබෙනවා
+      
         configuration.setAllowedOriginPatterns(List.of("http://localhost:*", "http://127.0.0.1:*"));
 
-        // ✅ 2. සියලුම HTTP Methods වලට අවසර දීම (විශේෂයෙන් OPTIONS එකට)
+    
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));
 
-        // ✅ 3. අවශ්‍ය සියලුම Headers වලට අවසර දීම
+      
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept", "X-Requested-With", "Origin"));
 
-        // ✅ 4. Browser එකට Token එක කියවන්න ඉඩ දීම
+        
         configuration.setExposedHeaders(List.of("Authorization"));
 
         configuration.setAllowCredentials(true);
-        configuration.setMaxAge(3600L); // විනාඩි 60ක් යනකම් CORS පරීක්ෂාව මතක තබා ගනී
+        configuration.setMaxAge(3600L); 
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
